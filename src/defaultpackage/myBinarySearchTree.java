@@ -14,23 +14,40 @@ public class myBinarySearchTree extends BinarySearchTree {
 
 	//public access method for add
 	public boolean add(int data) {
-		return add(data, super.root);
+		 if (root == null) {
+	            root = new Node(data, null);
+	            return true;
+	     } 
+		 else {
+	            return add(data, root);
+	     }
 	}
 	
 	//private recursive helper method
 	private boolean add(int data, Node node) {
-		if(node == null) {
-			node = new Node(data);
-			super.size++;
-		}
-		else if(data == node.data) {
-			return false;
-		}
-		else if(data < node.data)
-			return add(data, node.left);
-		else if(data > node.data)
-			return add(data, node.right);
-		
+		 if (data < node.data) {
+			 if (node.left == null) {
+				 node.left = new Node(data, node);
+				 return true;
+	         } 
+			 else {
+				 return add(data, node.left);
+	         }
+	     } 
+		 else if (data > node.data) {
+	            if (node.right == null) {
+	                node.right = new Node(data, node);
+	                return true;
+	            } 
+	            else {
+	               return add(data,node.right);
+	            }
+	        }
+		 
+		 if(node.data == data) {
+			 return false;
+		 }
+		 
 		return true;
 	}
 
