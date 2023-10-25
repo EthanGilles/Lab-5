@@ -1,6 +1,8 @@
 package defaultpackage;
 import java.util.*;
 
+import defaultpackage.BinarySearchTree.Node;
+
 public class myTreeIterator implements ITreeIterator {
 
 	@Override

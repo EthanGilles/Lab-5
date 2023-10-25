@@ -16,6 +16,7 @@ public class myBinarySearchTree extends BinarySearchTree {
 	public boolean add(int data) {
 		 if (root == null) {
 	            root = new Node(data, null);
+	            super.size++;
 	            return true;
 	     } 
 		 else
